@@ -1,7 +1,7 @@
 {
 	"name": "sveltekit-inline-remote-functions",
 	"version": "0.1.0",
-	"description": "Vite plugin that lets you write SvelteKit remote functions inline in .svelte components with <script remote>",
+	"description": "Vite plugin that lets you write SvelteKit remote functions inline in .svelte components using <script remote>",
 	"keywords": [
 		"svelte",
 		"sveltekit",
