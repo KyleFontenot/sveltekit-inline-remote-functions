@@ -1,0 +1,55 @@
+{
+	"name": "sveltekit-inline-remote-functions",
+	"version": "0.1.0",
+	"description": "Vite plugin that lets you write SvelteKit remote functions inline in .svelte components with <script remote>",
+	"keywords": [
+		"svelte",
+		"sveltekit",
+		"vite",
+		"vite-plugin",
+		"remote-functions"
+	],
+	"license": "MIT",
+	"type": "module",
+	"files": [
+		"dist",
+		"README.md",
+		"LICENSE"
+	],
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/index.js"
+		},
+		"./package.json": "./package.json"
+	},
+	"sideEffects": false,
+	"engines": {
+		"node": ">=20"
+	},
+	"scripts": {
+		"build": "rm -rf dist && bun build ./src/index.ts --outdir dist --target node --format esm --packages external --sourcemap=linked && tsc -p tsconfig.build.json",
+		"typecheck": "tsc --noEmit",
+		"lint": "biome check .",
+		"lint:fix": "biome check --write .",
+		"format": "biome format --write .",
+		"test": "bun test",
+		"check": "bun run lint && bun run typecheck && bun test",
+		"prepublishOnly": "bun run check && bun run build"
+	},
+	"peerDependencies": {
+		"vite": "^8.0.0"
+	},
+	"dependencies": {
+		"magic-string": "^1.4.5"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^2.6.8",
+		"@types/bun": "^1.4.4",
+		"svelte": "^5.57.3",
+		"typescript": "^7.0.2",
+		"vite": "^8.3.8"
+	}
+}
